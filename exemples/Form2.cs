@@ -21,19 +21,20 @@ namespace exemples
 
         //Crearem instances dels objectes que necessitem
         private Font printFont; //Per gestionar el tipus de tipografia que utilitzarem
-        private StreamReader sr; //Crearem un imprimidor
         private void button1_Click(object sender, EventArgs e)
         {
             //per evitar errors, introduirem els codi en try catch   
             try {
-                sr = new StreamReader("C:\\Users\\isard\\Downloads\\MyFile.pdf"); //introduirem una ubicacio
                 //una vegada que comprobem que no dona error
                 try
                 {
                     printFont = new Font("Arial",12); //Introduim un tipus de font
                     printDocument1.PrintPage += new PrintPageEventHandler(this.imprimirMissatge);
 
-                }finally { sr.Close(); }
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 
             }catch(Exception ex) { //Sortida de error
                 MessageBox.Show(ex.Message);
@@ -51,13 +52,14 @@ namespace exemples
             float topMatgin = ev.MarginBounds.Top;
 
 
-            String linea = null;//String per gurdar el text
+            String linea = textBox1.Text;//String per gurdar el text
 
             int count = 0; //contador
-            while (count<lines && ((linea = sr.ReadLine())!=null)) //Comprobar que no escribim mes lines que les lines per pagina, i comproba que no tenim un text null
+            while (count<lines && linea!=null) //Comprobar que no escribim mes lines que les lines per pagina, i comproba que no tenim un text null
             {
                 yPos = topMatgin + (count * printFont.GetHeight(ev.Graphics)); //calcular quina distancia imprimeix
                 ev.Graphics.DrawString(linea, printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); //imprimeix la linea
+                linea = null;
                 count++; //conta
             }
 
