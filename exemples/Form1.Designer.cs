@@ -28,18 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
+            button1 = new Button();
+            colorDialog1 = new ColorDialog();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(94, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(35, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Hola!";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(60, 101);
+            button1.Name = "button1";
+            button1.Size = new Size(101, 23);
+            button1.TabIndex = 1;
+            button1.Text = "Canviar Color";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(339, 209);
+            ClientSize = new Size(222, 182);
+            Controls.Add(button1);
+            Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private Button button1;
+        private ColorDialog colorDialog1;
     }
 }
