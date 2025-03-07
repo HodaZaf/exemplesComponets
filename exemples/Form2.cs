@@ -33,8 +33,8 @@ namespace exemples
 
             //iniquem que volem imprimir un text
             //Introduim el text que volem imprimir, la font, el tipus de pizell que utilitzara i hem de especicar en quins llocs tenim permeos imprmir
-            args.Graphics.DrawString("Has introduit el següent text: " + textBox1.Text, printFont, Brushes.Black, new RectangleF(10,10,2480,3508));
-            args.Graphics.DrawString(textBox1.Text, printFont, Brushes.Black, new RectangleF(10, 20, 2480, 3508));
+            args.Graphics.DrawString("Has introduit el següent text: ", printFont, Brushes.Black, new RectangleF(10,10,2480,3508));
+            args.Graphics.DrawString(textBox1.Text, printFont, Brushes.Black, new RectangleF(10, 40, 2480, 3508));
             //El rectangle conte quantre parametres, el primer indica el marge horizonatal, el segon indica el marge vertical, el tercer quanta distancia pot ocupar en sentit horizontalment i finalment el últim indica quanta distancia pot ocupar verticalment
 
         }
